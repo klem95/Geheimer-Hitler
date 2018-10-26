@@ -13,63 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: -0
-    y: 379
-    width: 367
-    height: 456
-  m_ShowMode: 0
-  m_Title: 
-  m_RootView: {fileID: 4}
-  m_MinSize: {x: 100, y: 122}
-  m_MaxSize: {x: 4000, y: 4022}
---- !u!114 &2
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PixelRect:
-    serializedVersion: 2
     x: 0
     y: 45
     width: 1920
     height: 1155
   m_ShowMode: 4
   m_Title: 
-  m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_RootView: {fileID: 5}
+  m_MinSize: {x: 950, y: 613}
   m_MaxSize: {x: 10000, y: 10000}
---- !u!114 &3
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 367
-    height: 456
-  m_MinSize: {x: 100, y: 122}
-  m_MaxSize: {x: 4000, y: 4022}
-  m_ActualView: {fileID: 16}
-  m_Panes:
-  - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &4
+--- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,19 +33,18 @@ MonoBehaviour:
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 3}
+  m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 367
     height: 456
-  m_MinSize: {x: 100, y: 122}
-  m_MaxSize: {x: 4000, y: 4022}
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
   vertical: 0
   controlID: 132
---- !u!114 &5
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,15 +62,15 @@ MonoBehaviour:
     y: 834
     width: 1920
     height: 271
-  m_MinSize: {x: 230, y: 271}
-  m_MaxSize: {x: 10000, y: 10021}
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
+  - {fileID: 17}
   - {fileID: 20}
-  - {fileID: 23}
-  m_Selected: 0
-  m_LastSelected: 1
---- !u!114 &6
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,19 +82,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 10}
-  - {fileID: 5}
+  - {fileID: 8}
+  - {fileID: 3}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
     width: 1920
     height: 1105
-  m_MinSize: {x: 683, y: 692}
-  m_MaxSize: {x: 12008, y: 18042}
+  m_MinSize: {x: 681, y: 563}
+  m_MaxSize: {x: 12006, y: 12063}
   vertical: 1
-  controlID: 40
---- !u!114 &7
+  controlID: 96
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,9 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 8}
   - {fileID: 6}
-  - {fileID: 9}
+  - {fileID: 4}
+  - {fileID: 7}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -165,7 +117,7 @@ MonoBehaviour:
     height: 1155
   m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
---- !u!114 &8
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &9
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +158,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &10
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,20 +170,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 11}
-  - {fileID: 12}
-  - {fileID: 15}
+  - {fileID: 9}
+  - {fileID: 10}
+  - {fileID: 13}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1920
     height: 834
-  m_MinSize: {x: 683, y: 421}
-  m_MaxSize: {x: 12008, y: 8021}
+  m_MinSize: {x: 681, y: 442}
+  m_MaxSize: {x: 12006, y: 8042}
   vertical: 0
-  controlID: 41
---- !u!114 &11
+  controlID: 97
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,15 +201,15 @@ MonoBehaviour:
     y: 0
     width: 369
     height: 834
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 18}
-  - {fileID: 19}
+  - {fileID: 15}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &12
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,19 +221,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 13}
-  - {fileID: 14}
+  - {fileID: 11}
+  - {fileID: 12}
   m_Position:
     serializedVersion: 2
     x: 369
     y: 0
     width: 1181
     height: 834
-  m_MinSize: {x: 204, y: 421}
-  m_MaxSize: {x: 4004, y: 8021}
+  m_MinSize: {x: 204, y: 442}
+  m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 42
---- !u!114 &13
+  controlID: 98
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,15 +251,15 @@ MonoBehaviour:
     y: 0
     width: 1181
     height: 513
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 17}
-  - {fileID: 21}
+  - {fileID: 14}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &14
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,15 +279,15 @@ MonoBehaviour:
     height: 321
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_ActualView: {fileID: 19}
   m_Panes:
+  - {fileID: 19}
+  - {fileID: 21}
   - {fileID: 22}
-  - {fileID: 24}
-  - {fileID: 25}
-  - {fileID: 26}
+  - {fileID: 23}
   m_Selected: 0
   m_LastSelected: 3
---- !u!114 &15
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,958 +307,13 @@ MonoBehaviour:
     height: 834
   m_MinSize: {x: 277, y: 71}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 27}
+  m_ActualView: {fileID: 24}
   m_Panes:
-  - {fileID: 27}
-  - {fileID: 28}
+  - {fileID: 24}
+  - {fileID: 25}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &16
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a23bd0daa207c468cf766efebfa856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Forge Wizard
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 401
-    width: 367
-    height: 434
-  m_PersistentViewDataDictionary: {fileID: 0}
-  ActiveButton:
-    ButtonName: PlayerNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables:
-    - FieldName: userName
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 0
-    - FieldName: ID
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 5
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/PlayerNetworkObject.cs
-      Filename: PlayerNetworkObject.cs
-      ExactFilename: PlayerNetworkObject
-      IdentityValue: 5
-      ObjectClassType: 3
-      Fields:
-      - FieldName: userName
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 0
-      - FieldName: ID
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 5
-      RPCS: []
-      Rewinds: []
-  _editorButtons:
-  - ButtonName: ChatManagerBehavior
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 0
-    CanRenderRPCS: 1
-    ClassVariables: []
-    RPCVariables:
-    - FieldName: SendMessage
-      CanRender: 1
-      FieldTypes:
-      - HelperName: username
-        Type: 11
-      - HelperName: message
-        Type: 11
-      Dropdown: 0
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/ChatManagerBehavior.cs
-      Filename: ChatManagerBehavior.cs
-      ExactFilename: ChatManagerBehavior
-      IdentityValue: -1
-      ObjectClassType: 2
-      Fields: []
-      RPCS:
-      - RPCName: SendMessage
-        Arguments: 0b0000000b000000
-        HelperTypes:
-        - username
-        - message
-      Rewinds: []
-  - ButtonName: ChatManagerNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables: []
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/ChatManagerNetworkObject.cs
-      Filename: ChatManagerNetworkObject.cs
-      ExactFilename: ChatManagerNetworkObject
-      IdentityValue: 1
-      ObjectClassType: 3
-      Fields: []
-      RPCS: []
-      Rewinds: []
-  - ButtonName: CubeForgeGameBehavior
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 0
-    CanRenderRPCS: 1
-    ClassVariables: []
-    RPCVariables:
-    - FieldName: InitializeMap
-      CanRender: 1
-      FieldTypes:
-      - HelperName: minimum
-        Type: 13
-      - HelperName: maximum
-        Type: 13
-      - HelperName: data
-        Type: 18
-      Dropdown: 0
-    - FieldName: CreatePrimitive
-      CanRender: 1
-      FieldTypes:
-      - HelperName: typebyte
-        Type: 0
-      - HelperName: position
-        Type: 13
-      Dropdown: 0
-    - FieldName: DestroyPrimitive
-      CanRender: 1
-      FieldTypes:
-      - HelperName: position
-        Type: 13
-      Dropdown: 0
-    - FieldName: TestMe
-      CanRender: 1
-      FieldTypes:
-      - HelperName: message
-        Type: 11
-      Dropdown: 0
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/CubeForgeGameBehavior.cs
-      Filename: CubeForgeGameBehavior.cs
-      ExactFilename: CubeForgeGameBehavior
-      IdentityValue: -1
-      ObjectClassType: 2
-      Fields: []
-      RPCS:
-      - RPCName: InitializeMap
-        Arguments: 0d0000000d00000012000000
-        HelperTypes:
-        - minimum
-        - maximum
-        - data
-        - 
-      - RPCName: CreatePrimitive
-        Arguments: 000000000d000000
-        HelperTypes:
-        - typebyte
-        - position
-        - 
-        - 
-      - RPCName: DestroyPrimitive
-        Arguments: 0d000000
-        HelperTypes:
-        - position
-        - 
-        - 
-        - 
-      - RPCName: TestMe
-        Arguments: 0b000000
-        HelperTypes:
-        - message
-        - 
-        - 
-        - 
-      Rewinds: []
-  - ButtonName: CubeForgeGameNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables: []
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/CubeForgeGameNetworkObject.cs
-      Filename: CubeForgeGameNetworkObject.cs
-      ExactFilename: CubeForgeGameNetworkObject
-      IdentityValue: 2
-      ObjectClassType: 3
-      Fields: []
-      RPCS: []
-      Rewinds: []
-  - ButtonName: ExampleProximityPlayerBehavior
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 0
-    CanRenderRPCS: 1
-    ClassVariables: []
-    RPCVariables:
-    - FieldName: SendColor
-      CanRender: 1
-      FieldTypes:
-      - HelperName: color
-        Type: 16
-      Dropdown: 0
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/ExampleProximityPlayerBehavior.cs
-      Filename: ExampleProximityPlayerBehavior.cs
-      ExactFilename: ExampleProximityPlayerBehavior
-      IdentityValue: -1
-      ObjectClassType: 2
-      Fields: []
-      RPCS:
-      - RPCName: SendColor
-        Arguments: 10000000
-        HelperTypes:
-        - color
-      Rewinds: []
-  - ButtonName: ExampleProximityPlayerNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables:
-    - FieldName: position
-      CanRender: 1
-      Interpolate: 1
-      InterpolateValue: 0.15
-      FieldType: 13
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/ExampleProximityPlayerNetworkObject.cs
-      Filename: ExampleProximityPlayerNetworkObject.cs
-      ExactFilename: ExampleProximityPlayerNetworkObject
-      IdentityValue: 3
-      ObjectClassType: 3
-      Fields:
-      - FieldName: position
-        Interpolate: 1
-        InterpolateValue: 0.15
-        FieldType: 13
-      RPCS: []
-      Rewinds: []
-  - ButtonName: NetworkCameraBehavior
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 0
-    CanRenderRPCS: 1
-    ClassVariables: []
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/NetworkCameraBehavior.cs
-      Filename: NetworkCameraBehavior.cs
-      ExactFilename: NetworkCameraBehavior
-      IdentityValue: -1
-      ObjectClassType: 2
-      Fields: []
-      RPCS: []
-      Rewinds: []
-  - ButtonName: NetworkCameraNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables:
-    - FieldName: position
-      CanRender: 1
-      Interpolate: 1
-      InterpolateValue: 0.15
-      FieldType: 13
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/NetworkCameraNetworkObject.cs
-      Filename: NetworkCameraNetworkObject.cs
-      ExactFilename: NetworkCameraNetworkObject
-      IdentityValue: 4
-      ObjectClassType: 3
-      Fields:
-      - FieldName: position
-        Interpolate: 1
-        InterpolateValue: 0.15
-        FieldType: 13
-      RPCS: []
-      Rewinds: []
-  - ButtonName: PlayerBehavior
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 0
-    CanRenderRPCS: 1
-    ClassVariables: []
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/PlayerBehavior.cs
-      Filename: PlayerBehavior.cs
-      ExactFilename: PlayerBehavior
-      IdentityValue: -1
-      ObjectClassType: 2
-      Fields: []
-      RPCS: []
-      Rewinds: []
-  - ButtonName: PlayerNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables:
-    - FieldName: userName
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 0
-    - FieldName: ID
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 5
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/PlayerNetworkObject.cs
-      Filename: PlayerNetworkObject.cs
-      ExactFilename: PlayerNetworkObject
-      IdentityValue: 5
-      ObjectClassType: 3
-      Fields:
-      - FieldName: userName
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 0
-      - FieldName: ID
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 5
-      RPCS: []
-      Rewinds: []
-  - ButtonName: TestBehavior
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 0
-    CanRenderRPCS: 1
-    ClassVariables: []
-    RPCVariables:
-    - FieldName: FuncBlank
-      CanRender: 1
-      FieldTypes: []
-      Dropdown: 0
-    - FieldName: FuncByte
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argByte
-        Type: 0
-      Dropdown: 0
-    - FieldName: FuncChar
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argChar
-        Type: 1
-      Dropdown: 0
-    - FieldName: FuncShort
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argShort
-        Type: 2
-      Dropdown: 0
-    - FieldName: FuncUShort
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argUShort
-        Type: 3
-      Dropdown: 0
-    - FieldName: FuncBool
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argBool
-        Type: 4
-      Dropdown: 0
-    - FieldName: FuncInt
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argInt
-        Type: 5
-      Dropdown: 0
-    - FieldName: FuncUInt
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argUInt
-        Type: 6
-      Dropdown: 0
-    - FieldName: FuncFloat
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argFloat
-        Type: 7
-      Dropdown: 0
-    - FieldName: FuncLong
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argLong
-        Type: 8
-      Dropdown: 0
-    - FieldName: FuncULong
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argULong
-        Type: 9
-      Dropdown: 0
-    - FieldName: FuncDouble
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argDouble
-        Type: 10
-      Dropdown: 0
-    - FieldName: FuncString
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argString
-        Type: 11
-      Dropdown: 0
-    - FieldName: FuncByteArray
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argByteArray
-        Type: 18
-      Dropdown: 0
-    - FieldName: FuncAll
-      CanRender: 1
-      FieldTypes:
-      - HelperName: argByte
-        Type: 0
-      - HelperName: argChar
-        Type: 1
-      - HelperName: argShort
-        Type: 2
-      - HelperName: argUShort
-        Type: 3
-      - HelperName: argBool
-        Type: 4
-      - HelperName: argInt
-        Type: 5
-      - HelperName: argUInt
-        Type: 6
-      - HelperName: argFloat
-        Type: 7
-      - HelperName: argLong
-        Type: 8
-      - HelperName: argULong
-        Type: 9
-      - HelperName: argDouble
-        Type: 10
-      - HelperName: argString
-        Type: 11
-      - HelperName: argByteArray
-        Type: 18
-      Dropdown: 0
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/TestBehavior.cs
-      Filename: TestBehavior.cs
-      ExactFilename: TestBehavior
-      IdentityValue: -1
-      ObjectClassType: 2
-      Fields: []
-      RPCS:
-      - RPCName: FuncBlank
-        Arguments: 
-        HelperTypes:
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncByte
-        Arguments: 00000000
-        HelperTypes:
-        - argByte
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncChar
-        Arguments: 01000000
-        HelperTypes:
-        - argChar
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncShort
-        Arguments: 02000000
-        HelperTypes:
-        - argShort
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncUShort
-        Arguments: 03000000
-        HelperTypes:
-        - argUShort
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncBool
-        Arguments: 04000000
-        HelperTypes:
-        - argBool
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncInt
-        Arguments: 05000000
-        HelperTypes:
-        - argInt
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncUInt
-        Arguments: 06000000
-        HelperTypes:
-        - argUInt
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncFloat
-        Arguments: 07000000
-        HelperTypes:
-        - argFloat
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncLong
-        Arguments: 08000000
-        HelperTypes:
-        - argLong
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncULong
-        Arguments: 09000000
-        HelperTypes:
-        - argULong
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncDouble
-        Arguments: 0a000000
-        HelperTypes:
-        - argDouble
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncString
-        Arguments: 0b000000
-        HelperTypes:
-        - argString
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncByteArray
-        Arguments: 12000000
-        HelperTypes:
-        - argByteArray
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-        - 
-      - RPCName: FuncAll
-        Arguments: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b00000012000000
-        HelperTypes:
-        - argByte
-        - argChar
-        - argShort
-        - argUShort
-        - argBool
-        - argInt
-        - argUInt
-        - argFloat
-        - argLong
-        - argULong
-        - argDouble
-        - argString
-        - argByteArray
-        - 
-        - 
-      Rewinds: []
-  - ButtonName: TestNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables:
-    - FieldName: fieldByte
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 0
-    - FieldName: fieldChar
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 1
-    - FieldName: fieldShort
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 2
-    - FieldName: fieldUShort
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 3
-    - FieldName: fieldBool
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 4
-    - FieldName: fieldInt
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 5
-    - FieldName: fieldUInt
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 6
-    - FieldName: fieldFloat
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 7
-    - FieldName: fieldFloatInterpolate
-      CanRender: 1
-      Interpolate: 1
-      InterpolateValue: 0.15
-      FieldType: 7
-    - FieldName: fieldLong
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 8
-    - FieldName: fieldULong
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 9
-    - FieldName: fieldDouble
-      CanRender: 1
-      Interpolate: 0
-      InterpolateValue: 0
-      FieldType: 10
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/TestNetworkObject.cs
-      Filename: TestNetworkObject.cs
-      ExactFilename: TestNetworkObject
-      IdentityValue: 6
-      ObjectClassType: 3
-      Fields:
-      - FieldName: fieldByte
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 0
-      - FieldName: fieldChar
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 1
-      - FieldName: fieldShort
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 2
-      - FieldName: fieldUShort
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 3
-      - FieldName: fieldBool
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 4
-      - FieldName: fieldInt
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 5
-      - FieldName: fieldUInt
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 6
-      - FieldName: fieldFloat
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 7
-      - FieldName: fieldFloatInterpolate
-        Interpolate: 1
-        InterpolateValue: 0.15
-        FieldType: 7
-      - FieldName: fieldLong
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 8
-      - FieldName: fieldULong
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 9
-      - FieldName: fieldDouble
-        Interpolate: 0
-        InterpolateValue: 0
-        FieldType: 10
-      RPCS: []
-      Rewinds: []
-  - ButtonName: moveCubeBehavior
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 0
-    CanRenderRPCS: 1
-    ClassVariables: []
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/moveCubeBehavior.cs
-      Filename: moveCubeBehavior.cs
-      ExactFilename: moveCubeBehavior
-      IdentityValue: -1
-      ObjectClassType: 2
-      Fields: []
-      RPCS: []
-      Rewinds: []
-  - ButtonName: moveCubeNetworkObject
-    CanRender: 1
-    IsCreated: 0
-    MarkedForDeletion: 0
-    CanRenderFields: 1
-    CanRenderRPCS: 0
-    ClassVariables:
-    - FieldName: position
-      CanRender: 1
-      Interpolate: 1
-      InterpolateValue: 0.15
-      FieldType: 12
-    RPCVariables: []
-    RewindVariables: []
-    TiedObject:
-      FileLocation: /Users/SuneKlem/Projects/Unity projects/GH/Assets/Bearded Man
-        Studios Inc/Generated/UserGenerated/moveCubeNetworkObject.cs
-      Filename: moveCubeNetworkObject.cs
-      ExactFilename: moveCubeNetworkObject
-      IdentityValue: 7
-      ObjectClassType: 3
-      Fields:
-      - FieldName: position
-        Interpolate: 1
-        InterpolateValue: 0.15
-        FieldType: 12
-      RPCS: []
-      Rewinds: []
---- !u!114 &17
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1326,8 +333,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 371
-    y: 94
+    x: 2
+    y: 19
     width: 1177
     height: 492
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -1385,7 +392,7 @@ MonoBehaviour:
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000100000100000100
   m_XRRenderMode: 0
---- !u!114 &18
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1412,9 +419,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9c550000
-    m_LastClickedID: 21916
-    m_ExpandedIDs: 3e4cfeffe059feff1e77feffca77feff3079feff3c79feff2e8cfeffda8cfeff408efeff4c8efeff32abfeffdcabfeff42adfeff4eadfeff6e9dffff589effffbe9fffffca9fffffc0adffff6caeffffb4afffffd8afffffe4afffffceccffff7acdffffc0ceffffe4cefffff0ceffff6ed8ffff1ad9ffff62daffff86daffff92daffff04e4ffffd0eeffff7cefffffc2f0ffffe6f0fffff2f0ffffe6fbfffff4ffffff0000000042540000
+    m_SelectedIDs: 003a0000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 9c89ecff36a2edff36a7edff80a8edff42abeeff22b8eeffb203f0ffb403f0ff9804f0ff3009f0ff3209f0ff4446f0ff9aa0f0ff60a3f0ff123af3ff0a3bf3ffae91f3ffb4c9f3ff1c39f4ff343bf6ff6a3cf6ffac5cf6fff887f6ff708df6ffba8ef6ffca35f8fffe37f8ff8e47f9ff6a6afaff706afaff3277faff2e80faff5241fdff8257fdffc075fdffe2e4fdfff8e4fdff5aecfdff1aedfdff2ef3fdffd4f3fdff8ae7fffff4ffffff00000000b6400000704100007441000096410000c8420000d2420000dc420000bc450000a64a0000b04a0000ba4a0000ee530000f253000014540000f6550000f4580000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1430,15 +437,15 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 9}
     m_SearchString: 
   m_ExpandedScenes:
-  - Lobby
+  - Start_screen
   m_CurrenRootInstanceID: 0
   m_LockTracker:
     m_IsLocked: 0
   m_CurrentSortingName: TransformSorting
---- !u!114 &19
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1472,7 +479,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
---- !u!114 &20
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1498,7 +505,7 @@ MonoBehaviour:
     height: 250
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
-    m_NameFilter: lobby
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1509,20 +516,21 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Bearded Man Studios Inc/Prefabs
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 41
   m_LastFolders:
-  - Assets/Bearded Man Studios Inc/Prefabs
+  - Assets/Scenes
   m_LastFoldersGridSize: 41
-  m_LastProjectPath: /Users/SuneKlem/Projects/Unity projects/GH
+  m_LastProjectPath: /Users/SuneKlem/Projects/Unity projects/Geheimer-Hitler/Geheimer
+    Hitler
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 135}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 00000000820900004a0a0000d20a00008c0c000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 6c360000
+    m_LastClickedID: 13932
+    m_ExpandedIDs: 000000003036000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1538,7 +546,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 5}
+      m_ClientGUIView: {fileID: 3}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1550,7 +558,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000820900004a0a0000d20a00008c0c0000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1575,8 +583,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 003a0000
+    m_LastClickedInstanceID: 14848
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 8e220000e62f00001471000000000000
     m_RenameOverlay:
@@ -1594,7 +602,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 3}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1605,7 +613,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 41
   m_DirectoriesAreaWidth: 194
---- !u!114 &21
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1630,7 +638,7 @@ MonoBehaviour:
     width: 1177
     height: 681
   m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &22
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1656,14 +664,14 @@ MonoBehaviour:
     height: 300
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 8365.074023008347
+  lastFramingTime: 817.1993219852448
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.16432275, y: -11.314158, z: -0.004886088}
+    m_Target: {x: 354.4211, y: -50.50093, z: -12.815319}
     speed: 2
-    m_Value: {x: -0.16432275, y: -11.314158, z: -0.004886088}
+    m_Value: {x: 354.4211, y: -50.50093, z: -12.815319}
   m_RenderMode: 2
   m_CameraMode:
     drawMode: 0
@@ -1695,9 +703,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.3451245
+    m_Target: 1991.4899
     speed: 2
-    m_Value: 3.3451245
+    m_Value: 1991.4899
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1709,7 +717,7 @@ MonoBehaviour:
   m_ReplacementString: 
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &23
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1734,7 +742,7 @@ MonoBehaviour:
     width: 1920
     height: 250
   m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &24
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1774,7 +782,7 @@ MonoBehaviour:
   m_SequencePath:
     m_SelectionRoot: 0
     m_SubElements: []
---- !u!114 &25
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1798,7 +806,7 @@ MonoBehaviour:
     width: 1177
     height: 487
   m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &26
+--- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2148,7 +1156,7 @@ MonoBehaviour:
           m_VisibleColumns: 
           m_SortedColumns: 
   m_ClearOnPlay: 0
---- !u!114 &27
+--- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2182,7 +1190,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
---- !u!114 &28
+--- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
