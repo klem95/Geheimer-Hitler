@@ -13,7 +13,7 @@ public class GameLogic : MonoBehaviour {
 	static public bool all_players_are_ready;
 	int locked_in_players;
 
-
+	static public string game_size;
 
 	void Awake() {
         DontDestroyOnLoad (transform.gameObject);
@@ -26,14 +26,6 @@ public class GameLogic : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-
-		
-	}
-
-
 	// Game size selection and player registration  \\
 
 	public void initialize_game_size (int _people) {
@@ -42,21 +34,26 @@ public class GameLogic : MonoBehaviour {
 			players.Add (new Player (i));
 		}
 
+		if (_people <= 6) {
+			game_size = "small";
+			Debug.Log ("Game size small");
+
+		} else if (_people <= 8) {
+			game_size = "medium";
+		} else {
+			game_size = "marge";
+		}
 		
 		SceneManager.LoadScene ("Player_registration");
 
-
 	}
-
-
 	public void player_registration (int ID, string _input_string) {
 
 		players[ID].user_name = _input_string;
-		Debug.Log ("The player with ID: " + ID + " has chosen the name: " + players[ID].user_name);
+		//Debug.Log ("The player with ID: " + ID + " has chosen the name: " + players[ID].user_name);
 		
 
 	}
-
 	public void current_lock_status (int ID) {
 		if (!players[ID].locked_in) {
 			players[ID].locked_in = true;
@@ -73,14 +70,7 @@ public class GameLogic : MonoBehaviour {
 				all_players_are_ready = false;
 			}
 
-		Debug.Log ("The player with ID: " + ID + " has lock status: " + players[ID].locked_in);
+		//Debug.Log ("The player with ID: " + ID + " has lock status: " + players[ID].locked_in);
 		
 	}
-
-
-
-
-
-
-
 }

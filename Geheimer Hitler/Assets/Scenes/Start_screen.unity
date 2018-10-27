@@ -339,7 +339,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 79894509}
         m_MethodName: initialize_game_size
         m_Mode: 3
         m_Arguments:
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 79894509}
         m_MethodName: initialize_game_size
         m_Mode: 3
         m_Arguments:
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 79894509}
         m_MethodName: initialize_game_size
         m_Mode: 3
         m_Arguments:
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 79894509}
         m_MethodName: initialize_game_size
         m_Mode: 3
         m_Arguments:

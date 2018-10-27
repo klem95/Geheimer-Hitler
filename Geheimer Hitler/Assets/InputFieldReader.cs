@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class InputFieldReader : MonoBehaviour {
 
 	[SerializeField]
@@ -56,24 +57,10 @@ public class InputFieldReader : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
-
-	
-
-		
+	void Start () {		
 		local_gamelogic = GameObject.Find("Game_master").GetComponent<GameLogic> ();
-
-		
-		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-
-
-	}
-
 	public void broadcast_text_Input (int ID) {
 		//Debug.Log(TextMeshProTexts[ID].transform.parent.gameObject.name + "writes: " + TextMeshProTexts[ID].text);
 		if (!GameLogic.players[ID].locked_in) {
@@ -91,7 +78,6 @@ public class InputFieldReader : MonoBehaviour {
 			local_gamelogic.current_lock_status (ID);
 
 			if (GameLogic.players[ID].locked_in) {
-				Debug.Log ("Chaning to true");
 				temp_but.GetComponent<Image>().sprite = locked_in;
 			} else {
 				temp_but.GetComponent<Image>().sprite = not_locked_in;
@@ -104,12 +90,10 @@ public class InputFieldReader : MonoBehaviour {
 			start_game_but.GetComponent<Image> ().color = Color.red;
 		}
 	}
-
-
 	public void begin_game () {
-
-	}
-
-		
+		if (GameLogic.all_players_are_ready) {
+			SceneManager.LoadScene ("Role_delegation");
+		}	
+	}		
 }
 
