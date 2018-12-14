@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-/////////// Status (29/10) ///////////
+/////////// Status (03/11) ///////////
 /*
-
+	1) Implementation of veto plays. 
+	
 
  */
 
@@ -24,6 +25,10 @@ public class GUI_man : MonoBehaviour {
 
 	bool locked_in;
 	bool animate_elec;
+
+	int glob_forme_chan_id;
+	string glob_forme_chan_name;
+	bool powerUps_active;
 	Narative_manager narrator;
 
 	string sitting_pres, sitting_chanc;
@@ -46,18 +51,27 @@ public class GUI_man : MonoBehaviour {
 	[SerializeField]
 	GameObject [] legislation_tracker;
 
+	bool shuffle_check;
 
 	bool display_candi;
 
 	int chosen_card_id;
 	string chosen_card_type;
 
+	int [] killed_player_id = {12,12};
+	string [] killed_player_name = {"",""};
+
+	string temp_string = "";
+	int kill_count;
 
 	void Awake () {
-
+		kill_count = 0;
+		glob_forme_chan_id = 12;
 		being_g = true;
 		locked_in = false;
 		byte rnd_no = (byte)Random.Range(0,GameLogic.players.Count);
+
+		shuffle_check = true;
 
 		sitting_chanc= "";
 
@@ -85,6 +99,10 @@ public class GUI_man : MonoBehaviour {
 		activate_gameobject (player_b, false);
 
 		narrator = new Narative_manager ();
+
+		powerUps_active = false;
+
+		
 
 	}
 
@@ -162,11 +180,6 @@ public class GUI_man : MonoBehaviour {
 				}	
 			}
 
-
-
-
-			
-
 			public void display_legi () {
 				StartCoroutine (animate_drop_down ("up"));
 				StartCoroutine (animate_UI_interater ("down"));
@@ -197,12 +210,17 @@ public class GUI_man : MonoBehaviour {
 		public void display_candidates () {
 
 			if (display_candi) { 
-				string [] temp_string = narrator.intro_message();
-				GUI_text[0].text = temp_string[0];
-				GUI_text[1].text = temp_string[1];
+
+				if (!powerUps_active) {
+					string [] temp_string = narrator.intro_message();
+					GUI_text[0].text = temp_string[0];
+					GUI_text[1].text = temp_string[1];
+				}
+				
 
 				byte count = 0;
 				foreach(GameObject obj in player_buttons) {
+
 					if (being_g) {
 						obj.SetActive(true);
 					}
@@ -211,44 +229,70 @@ public class GUI_man : MonoBehaviour {
 					if (GameLogic.players[count].president) {
 					//	Debug.Log (GameLogic.players[count].user_name);
 						obj.GetComponent<Image>().color = Color.red;
+					} else if (!GameLogic.players[count].is_alive){
+						obj.GetComponent<Image>().color = Color.black;
+					} else if (GameLogic.players[count].user_name ==  glob_forme_chan_name) {
+						obj.GetComponent<Image>().color = new Color (0.3f, 0, 0.14f);
 					} else {
 						obj.GetComponent<Image>().color = Color.white;
 					}
 					count++;
 				}
-				being_g =false;
-				display_candi = false;
 
-				begin_b.SetActive(false);
-				activate_gameobject(vote_b,true);
+				if (!powerUps_active) {
+					being_g =false;
+					display_candi = false;
+
+					begin_b.SetActive(false);
+					activate_gameobject(vote_b,true);
+				} 
 			}
 		}
 
 
 		public void chose_chan (int idx) {
-			if (idx != sitting_pres_id) {
-				sitting_chanc = GameLogic.players[idx].user_name;
-				foreach (GameObject obj in player_b) {
+
+			if (idx != sitting_pres_id && idx != killed_player_id[0] && idx != killed_player_id[1]) {
+
+				if (!powerUps_active) {
+					if (idx != glob_forme_chan_id) {
+						sitting_chanc = GameLogic.players[idx].user_name;
+					}
+					
+				} else {
+					killed_player_id[kill_count] = idx;
+					killed_player_name[kill_count] = GameLogic.players[idx].user_name;
+					
+					
+				}
+				
+				foreach (GameObject obj in player_buttons) {
 					string tmp_name = obj.GetComponentInChildren<Text>().text;
 
 					if (tmp_name == sitting_chanc) {
 						obj.GetComponent<Image>().color = Color.green;
 					} else if (tmp_name == sitting_pres){
 						obj.GetComponent<Image>().color = Color.red;
+					} else if (tmp_name != killed_player_name[0] && tmp_name != killed_player_name[1] && tmp_name == glob_forme_chan_name) {
+						obj.GetComponent<Image>().color = new Color (0.3f, 0, 0.14f);
+					} else if (tmp_name == killed_player_name[0] || tmp_name == killed_player_name[1]) {
+						obj.GetComponent<Image>().color = Color.black;
 					} else {
 						obj.GetComponent<Image>().color = Color.white;
 					}
 			}
+			if (!powerUps_active) {
+				GameLogic.players[idx].chancellor = true;
+				sitting_chanc_id = GameLogic.players[idx].ID;
+			}
 			
-			GameLogic.players[idx].chancellor = true;
-			sitting_chanc_id = GameLogic.players[idx].ID;
 			//Debug.Log ("Player: " + GameLogic.players[idx].user_name + "has been chosen as chanclor");	
 	
 			}
 		}
 
 		public void vote_result (string _result) {
-
+			powerUps_active = false;
 			if (_result == "ja") {
 					if (sitting_chanc != "") {
 					GameLogic.logged_data.Add (new Log_data(sitting_pres,sitting_chanc));
@@ -262,9 +306,20 @@ public class GUI_man : MonoBehaviour {
 					GUI_text[1].text = "";
 					GUI_text[2].text = "";
 
-					passing_legislations ();
+					if(shuffle_check){
+						Debug.Log("Shufle" + shuffle_check);
+						passing_legislations ();
+					} else {
+						Debug.Log("Shufle" +shuffle_check);
+						intruction_after_vote ();
+						shuffle_check = true;
+					}
+					
 				}
 			} else {
+					sitting_chanc_id = 12;
+					sitting_chanc = "";
+
 					legislation_tracker[GameLogic.elections_failed].GetComponent<Image>().color = Color.black;
 				if (GameLogic.elections_failed < 3) {
 					assign_nxt_pres (sitting_pres_id);
@@ -284,11 +339,34 @@ public class GUI_man : MonoBehaviour {
 	public void assign_nxt_pres (int _former_pres_id) {
 		GameLogic.players[_former_pres_id].president = false;
 
+		if (sitting_chanc != "") {
+			glob_forme_chan_id = sitting_chanc_id;
+			glob_forme_chan_name = GameLogic.players[sitting_chanc_id].user_name;
+		}
+		
+
+		int nxt_pres_id;
+
 		if (_former_pres_id == GameLogic.players.Count-1) {
 			_former_pres_id = -1;
 		}
+
+		_former_pres_id ++;
+
+		if (_former_pres_id != killed_player_id[0] && _former_pres_id != killed_player_id[1]) {
+			nxt_pres_id = _former_pres_id;
+		} else {
+			nxt_pres_id = _former_pres_id + 1;
+		}
 		
-		int nxt_pres_id = _former_pres_id + 1;
+		// int nxt_pres_id = _former_pres_id + 1;
+
+		// if (killed_player_id == nxt_pres_id ) {
+		// 	nxt_pres_id ++;
+		// }
+
+		
+
 		GameLogic.players[nxt_pres_id].president = true;
 
 		sitting_pres = GameLogic.players[nxt_pres_id].user_name;
@@ -308,14 +386,28 @@ public class GUI_man : MonoBehaviour {
 	
 	public void display_drawn_cards_1 () {
 
+		begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+
+		Debug.Log (powerUps_active);
+		Debug.Log ("display_drawn_cards_1");
+
 		activate_gameobject (cards_img,true);
 
-		begin_b.GetComponentInChildren<Text>().text = "Discard";
-		begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
-		begin_b.GetComponent<Button>().onClick.AddListener (discard);
+
+		if (!powerUps_active) {
+			Debug.Log ("displayering cards to dicard");
+			begin_b.GetComponentInChildren<Text>().text = "Discard";
+			begin_b.GetComponent<Button>().onClick.AddListener (discard);
+		} else {
+			Debug.Log ("noooot");
+			begin_b.GetComponentInChildren<Text>().text = "Return";
+			begin_b.GetComponent<Button>().onClick.AddListener (change_of_power);
+		}
+		
 	}
 
 	public void display_drawn_cards_2 () {
+
 
 		for (int i = 0; i <= 2; i++) {
 			if (i != chosen_card_id) {
@@ -323,12 +415,16 @@ public class GUI_man : MonoBehaviour {
 			}
 		}
 
-		begin_b.GetComponentInChildren<Text>().text = "Pass";
-		begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
-		begin_b.GetComponent<Button>().onClick.AddListener(display_legi);
+		if (!powerUps_active) {
+			begin_b.GetComponentInChildren<Text>().text = "Pass";
+			begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+			begin_b.GetComponent<Button>().onClick.AddListener(display_legi);
+		}
+		
 	}
 
 	public void chosen_card (int _card_id) {
+		
 			chosen_card_type =  cards_img [_card_id].name;
 			chosen_card_id = _card_id;
 		}
@@ -337,23 +433,18 @@ public class GUI_man : MonoBehaviour {
 
 		public void passing_legislations () {
 
-			string [] temp_string = narrator.show_drawn_cards ();
-			GUI_text[0].text = temp_string [0];
-			GUI_text[1].text = temp_string [1];
 
-			begin_b.SetActive(true);
-			begin_b.GetComponentInChildren<Text>().text = "Reveal";
+			if (!powerUps_active) { 
+				intruction_after_vote ();
 
-			begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
-			begin_b.GetComponent<Button>().onClick.AddListener (display_drawn_cards_1);
-
-			if (Dealer.deck_idx + 3 > 17) {
-				Dealer.deck_idx = 0;
-				Dealer.shuffle_deck ();
-			}
+			} 
 
 			
-
+			if (Dealer.deck_idx + 3 >= 17) {
+				Dealer.deck_idx = 0;
+				Dealer.shuffle_deck ();
+			}				
+			
 			for (int i = 0; i <= 2; i++) {
 				Dealer.deck_idx ++;
 				Dealer.deck[Dealer.deck_idx].card_drawn = true;
@@ -368,18 +459,28 @@ public class GUI_man : MonoBehaviour {
 
 			}
 
+			if (powerUps_active) {
+				display_drawn_cards_1 ();
+			}
+
 			Debug.Log("Card idx: " + Dealer.deck_idx  );
 		}
 
 		public void play_top_legi () {
+
+
 			chosen_card_type = Dealer.deck[Dealer.deck_idx].legislation_type;
 			animate_elec = true;
 			display_legi ();
 			Dealer.deck_idx ++;
+
+			activate_gameobject(player_b,false);
+			activate_gameobject(vote_b,false);
 			
 		}
 
 		public void discard () {
+
 		
 			activate_gameobject(cards_img,false);
 
@@ -388,21 +489,152 @@ public class GUI_man : MonoBehaviour {
 			GUI_text[1].text = temp_string[3];
 
 			begin_b.GetComponentInChildren<Text>().text = "Reveal";
+			begin_b.GetComponent<Button>().onClick.RemoveAllListeners ();
 			begin_b.GetComponent<Button>().onClick.AddListener (display_drawn_cards_2);
 		}
 
 		public void initiate_next_round () {
+
+
 			being_g = true;
-			display_candi = true;
+			power_up_check (GameLogic.played_facist_cards,GameLogic.power_up_pos);
 			activate_gameobject(cards_img,false);
-			assign_nxt_pres (sitting_pres_id);
-			display_candidates ();
 
 			if (animate_elec) {
 				animate_elec = false;
 				StartCoroutine(animate_election_track());
 
 			}
+		}
+
+	
+
+		public void power_up_check (int _current_facist_card, int [] power_index) 
+		{
+
+
+
+			
+			if (_current_facist_card == power_index[0]) 
+			{
+				display_candi = false;
+				Debug.Log ("power up activted " + power_index[0]);
+				powerUps_active = true;
+				begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+
+					if (GameLogic.game_size == "small") {
+						view_top_3_cards ();
+					} else if (GameLogic.game_size == "medium") {
+						view_party_membership_card();
+
+					} else {
+						view_party_membership_card ();
+					}
+	
+
+				begin_b.GetComponentInChildren<Text>().text = "Activate";	
+				StartCoroutine (animate_drop_down("down"));			
+			} else if (_current_facist_card == power_index[1]) {
+				Debug.Log ("power up activted " + power_index[1]);
+				begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+				powerUps_active = true;
+				if (GameLogic.game_size == "small") {
+						assassinate_player ();
+					} else if (GameLogic.game_size == "medium") {
+						president_select ();
+
+					} else {
+						view_party_membership_card ();
+					}
+			
+			} else {
+				Debug.Log ("NOT power up activted ");
+				display_candi = true;
+				change_of_power ();
+			}
+
+			
+		}
+
+
+
+		public void change_of_power () {
+			begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+			powerUps_active = false;
+			activate_gameobject(cards_img,false);
+			assign_nxt_pres (sitting_pres_id);
+			
+
+			activate_gameobject(vote_b,true);
+			begin_b.SetActive(false);
+		}
+
+
+	////////////////////////////// Power ups \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+		public void view_top_3_cards () {
+			shuffle_check = false;
+			string[] tmp = narrator.power_unlocked_top_3_cards ();
+			GUI_text[0].text = tmp[0];
+			GUI_text[1].text = tmp[1];
+			GUI_text[2].text = tmp[2];	
+
+			begin_b.SetActive(true);
+			begin_b.GetComponent<Button>().onClick.AddListener (passing_legislations);
+
+		}
+
+		public void view_party_membership_card() {
+			string[] tmp = narrator.investigate_membership_card ();
+			GUI_text[0].text = tmp[0];
+			GUI_text[1].text = tmp[1];
+			GUI_text[2].text = tmp[2];
+
+
+			begin_b.GetComponent<Button>().onClick.AddListener (change_of_power);
+
+
+		}
+
+		public void assassinate_player() {
+			string[] tmp = narrator.assassinate_player_script();
+			GUI_text[0].text = tmp[0];
+			GUI_text[1].text = tmp[1];
+			GUI_text[2].text = tmp[2];
+
+			display_candi = true;
+			display_candidates ();
+			display_candi = false;
+
+			GameLogic.players[sitting_chanc_id].chancellor = false;
+
+			sitting_chanc = "";
+			sitting_chanc_id = 12;
+
+			begin_b.GetComponentInChildren<Text>().text = "Kill";
+			begin_b.GetComponent<Button>().onClick.AddListener (kill_player);
+
+			
+
+		}
+
+		public void president_select() {
+			Debug.Log ("President assigns the next president");
+
+		}
+
+		public void reveal_player_membership (Player _player) {
+
+			activate_gameobject (player_b,false);
+			GUI_text[0].text = _player.user_name;
+			GUI_text[1].text = "Belongs to the" + _player.membership_card + "party";
+
+			powerUps_active = false;
+
+			begin_b.GetComponentInChildren<Text>().text = "Continue";
+			begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+			begin_b.GetComponent<Button>().onClick.AddListener(change_of_power);
+
 		}
 
 	////////////////////////////// Others \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -413,4 +645,40 @@ public class GUI_man : MonoBehaviour {
 			}
 
 		}
+
+		public void kill_player () {
+
+
+			if (killed_player_id[kill_count] !=  12){
+				//player_b[killed_player_id].GetComponent<Image>().color = Color.black;
+				GameLogic.players[killed_player_id[kill_count]].is_alive = false;
+				kill_count++;
+			}
+
+			begin_b.GetComponentInChildren<Text>().text = "Continue";
+			begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+			begin_b.GetComponent<Button>().onClick.AddListener(change_of_power);
+
+			display_candi = false; //////// maybe delete this!
+			
+		}
+
+
+		public void intruction_after_vote () {
+
+
+			string [] temp_string = narrator.show_drawn_cards ();
+			GUI_text[0].text = temp_string [0];
+			GUI_text[1].text = temp_string [1];
+
+			begin_b.SetActive(true);
+			begin_b.GetComponentInChildren<Text>().text = "Reveal";
+			begin_b.GetComponent<Button>().onClick.RemoveAllListeners();
+			begin_b.GetComponent<Button>().onClick.AddListener (display_drawn_cards_1);
+			
+			display_candi = false;
+
+
+		}
+
 }

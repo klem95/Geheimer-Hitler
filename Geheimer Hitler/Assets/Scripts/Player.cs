@@ -12,6 +12,7 @@ public class Player {
 
 	public Player (byte _ID) {
 		ID = _ID;
+		is_alive = true;
 		president = false;
 		chancellor = false;
 

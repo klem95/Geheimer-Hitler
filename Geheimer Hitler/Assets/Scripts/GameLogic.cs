@@ -24,6 +24,10 @@ public class GameLogic : MonoBehaviour {
 	static public int played_facist_cards;
 	static public int played_liberal_cards;
 
+	static public int [] power_up_pos;
+
+
+
 	void Awake() {
         DontDestroyOnLoad (transform.gameObject);
     }
@@ -48,6 +52,13 @@ public class GameLogic : MonoBehaviour {
 		}
 
 		if (_people <= 6) {
+
+			power_up_pos = new int [3];
+
+			for (int i = 3; i < power_up_pos.Length+3; i++) {
+				power_up_pos[i-3] = i;
+			}
+			
 			game_size = "small";
 			Debug.Log ("Game size small");
 
