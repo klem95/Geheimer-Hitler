@@ -1553,15 +1553,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 174401819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4843084, y: 0.39136037, z: 0.4843084}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00006870526}
+  m_LocalScale: {x: 0.48430836, y: 0.39136037, z: 0.48430836}
   m_Children: []
   m_Father: {fileID: 1276030134}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.8}
+  m_AnchoredPosition: {x: 0, y: 2.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &174401821
@@ -2320,7 +2320,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277217422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1753.6001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.2403197, y: 0.83008, z: 0.83008}
   m_Children:
   - {fileID: 2088082526}
@@ -2329,7 +2329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: -78}
   m_SizeDelta: {x: 130, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &277217424
@@ -10661,7 +10661,7 @@ RectTransform:
   m_GameObject: {fileID: 1276030133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1753.6001}
-  m_LocalScale: {x: 1.54176, y: 1.9078399, z: 1.54176}
+  m_LocalScale: {x: 1.7767242, y: 2.1985948, z: 1.7767242}
   m_Children:
   - {fileID: 174401820}
   m_Father: {fileID: 470986197}
@@ -10669,7 +10669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 138}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1276030135
@@ -10710,7 +10710,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1276030136}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1750340120}
+        m_MethodName: begin_game
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1276030136
@@ -14190,8 +14201,11 @@ MonoBehaviour:
   TextMeshProTexts: []
   locked_in: {fileID: 21300000, guid: 024aa76752c92a5449a8801c599e1efd, type: 3}
   not_locked_in: {fileID: 21300000, guid: e9d4143c19529834981ac6821a04aecd, type: 3}
-  start_game_but: {fileID: 477912122}
+  start_game_but: {fileID: 1276030135}
   my_canvas: {fileID: 513685602}
+  button_ready: {fileID: 21300000, guid: efee20b64d1e73942a29ba61ce3379c3, type: 3}
+  button_not_ready: {fileID: 21300000, guid: 047b929beb10565479851d39b452dfb6, type: 3}
+  start_txt: {fileID: 174401819}
 --- !u!4 &1750340121
 Transform:
   m_ObjectHideFlags: 0

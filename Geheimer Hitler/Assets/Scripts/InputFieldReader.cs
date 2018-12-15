@@ -30,6 +30,10 @@ public class InputFieldReader : MonoBehaviour {
 	[SerializeField]
 	Transform my_canvas;
 
+	public Sprite button_ready;
+	public Sprite button_not_ready;
+
+	public GameObject start_txt;
 	
 
 	
@@ -37,7 +41,7 @@ public class InputFieldReader : MonoBehaviour {
 	void Awake () {
 
 
-		start_game_but.GetComponent<Image> ().color = Color.red;
+		//start_game_but.GetComponent<Image> ().color = Color.red;
 
 		player_UIs = new List<GameObject> ();
 
@@ -68,16 +72,47 @@ public class InputFieldReader : MonoBehaviour {
 		TextMeshProTexts[ID].text = GameLogic.players[ID].user_name;
 		Image  temp_but = player_UIs[ID].GetComponentsInChildren<Image>()[1];
 
-		if (TextMeshProTexts[ID].text != "") {
+		if (TextMeshProTexts[ID].text != "" && TextMeshProTexts[ID].text != " ") {
 			Debug.Log(player_UIs[ID].GetComponentsInChildren<Image>()[1].name);
 
-			
+			GameLogic.players[ID].locked_in = true;
+
 			temp_but.GetComponent<Image>().sprite = locked_in;
-			local_gamelogic.current_lock_status (ID);
+
+			GameLogic.locked_in_players ++;
+		
 
 		} else
 		{
+			
 			 temp_but.GetComponent<Image>().sprite = not_locked_in;
+			 GameLogic.players[ID].locked_in = false;
+			 GameLogic.locked_in_players --;
+
+			 
+		}
+
+		foreach (Player obj in GameLogic.players)
+		{
+			Debug.Log("User: " + obj.user_name + "´s looked in status is currently: " + obj.locked_in);
+		}
+
+		Debug.Log("---------------------------");
+
+		local_gamelogic.current_lock_status ();
+
+		
+
+		if (GameLogic.all_players_are_ready && TextMeshProTexts[ID].text != "") {
+			start_txt.GetComponent<TMP_Text>().color = new Color(1,1,1,1);
+			start_txt.transform.localPosition = new Vector3 (0,6.7f,0);
+			start_game_but.GetComponent<Image> ().sprite = button_ready;
+			start_game_but.GetComponent<Image> ().color = new Color(1,1,1,1);
+		} else {
+			start_txt.GetComponent<TMP_Text>().color = new Color(1,1,1,0.5f);
+			start_txt.transform.localPosition = new Vector3 (0,2.4f,0);
+			start_game_but.GetComponent<Image> ().sprite = button_not_ready;
+			start_game_but.GetComponent<Image> ().color = new Color(1,1,1,0.5f);
 		}
 
 		
@@ -89,7 +124,7 @@ public class InputFieldReader : MonoBehaviour {
 		Button temp_but = player_UIs[ID].GetComponentInChildren<Button>();
 
 		if (GameLogic.players[ID].user_name != null && GameLogic.players[ID].user_name != "") {
-			local_gamelogic.current_lock_status (ID);
+			//local_gamelogic.current_lock_status (ID);
 
 			if (GameLogic.players[ID].locked_in) {
 				temp_but.GetComponent<Image>().sprite = locked_in;
@@ -106,12 +141,23 @@ public class InputFieldReader : MonoBehaviour {
 	}
 	public void begin_game () {
 		if (GameLogic.all_players_are_ready) {
-			SceneManager.LoadScene ("Role_delegation");
+			start_txt.transform.localPosition = new Vector3 (0,2.4f,0);
+			start_game_but.GetComponent<Image>().sprite = button_not_ready;
+			//SceneManager.LoadScene ("Role_delegation");
+			StartCoroutine("scene_transition");
+			
 		}	
 	}		
 
 	public void back_2_start_screen () {
 		SceneManager.LoadScene("Start_screen");
+		
+	}
+
+
+	IEnumerator scene_transition () {
+		yield return new WaitForSeconds (0.5f);
+		SceneManager.LoadScene ("Role_delegation");
 	}
 }
 

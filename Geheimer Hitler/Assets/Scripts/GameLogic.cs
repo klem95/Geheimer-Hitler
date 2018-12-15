@@ -15,7 +15,7 @@ public class GameLogic : MonoBehaviour {
 	static public byte elections_failed;
 
 	static public bool all_players_are_ready;
-	byte locked_in_players;
+	static public byte locked_in_players;
 
 	static public string [] turn_tracker;
 
@@ -25,6 +25,14 @@ public class GameLogic : MonoBehaviour {
 	static public int played_liberal_cards;
 
 	static public int [] power_up_pos;
+
+	public GameObject [] small_b;
+	public GameObject [] medium_b;
+
+	public GameObject [] large_b;
+
+
+	public Sprite locked_in;
 
 
 
@@ -47,6 +55,8 @@ public class GameLogic : MonoBehaviour {
 
 		turn_tracker = new string [_people];
 
+		
+
 		for (byte i = 0; i < _people; i ++) {
 			players.Add (new Player (i));
 		}
@@ -58,19 +68,32 @@ public class GameLogic : MonoBehaviour {
 			for (int i = 3; i < power_up_pos.Length+3; i++) {
 				power_up_pos[i-3] = i;
 			}
+
+			small_b[_people - 5].GetComponent<Image>().sprite = locked_in;
+			small_b[_people - 5].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
 			
 			game_size = "small";
 			Debug.Log ("Game size small");
 
 		} else if (_people <= 8) {
+			medium_b[_people - 7].GetComponent<Image>().sprite = locked_in;
+			medium_b[_people - 7].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
 			game_size = "medium";
 		} else {
+			large_b[_people - 9].GetComponent<Image>().sprite = locked_in;
+			large_b[_people - 9].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
 			game_size = "marge";
 		}
 		
-		SceneManager.LoadScene ("Player_registration");
+		StartCoroutine ("scene_transition");
 
 	}
+
+	IEnumerator scene_transition () {
+		yield return new WaitForSeconds (0.5f);
+		SceneManager.LoadScene ("Player_registration");
+	}
+
 	public void player_registration (int ID, string _input_string) {
 
 		turn_tracker [ID] = _input_string;
@@ -79,21 +102,47 @@ public class GameLogic : MonoBehaviour {
 		
 
 	}
-	public void current_lock_status (int ID) {
-		if (!players[ID].locked_in) {
-			players[ID].locked_in = true;
-			locked_in_players++;
+	public void current_lock_status () {
+		// if (!players[ID].locked_in) {
+		// 	players[ID].locked_in = true;
+		// 	locked_in_players++;
 
-		} else {
-			players[ID].locked_in = false;
-			locked_in_players--;
+		// } else {
+		// 	players[ID].locked_in = false;
+		// 	locked_in_players--;
+		// }
+
+		//Debug.Log("********************");
+
+		int count = 0;
+
+		foreach (Player obj in players)
+		{
+			if (obj.locked_in) {
+				count++;
+			}
+
+			//Debug.Log("User: " + obj.user_name + "´s looked in status is currently: " + obj.locked_in);
 		}
 
-		if (locked_in_players == players.Count) {
+		Debug.Log("count is: " + count);
+
+		if (players.Count == count) 
+		{
 				all_players_are_ready = true;
-			} else {
+		} else {
 				all_players_are_ready = false;
-			}
+		}
+
+
+
+
+
+		// if (locked_in_players == players.Count) {
+		// 		all_players_are_ready = true;
+		// 	} else {
+		// 		all_players_are_ready = false;
+		// 	}
 
 		//Debug.Log ("The player with ID: " + ID + " has lock status: " + players[ID].locked_in);
 		
