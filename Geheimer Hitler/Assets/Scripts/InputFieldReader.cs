@@ -63,11 +63,25 @@ public class InputFieldReader : MonoBehaviour {
 	
 	public void broadcast_text_Input (int ID) {
 		//Debug.Log(TextMeshProTexts[ID].transform.parent.gameObject.name + "writes: " + TextMeshProTexts[ID].text);
-		if (!GameLogic.players[ID].locked_in) {
-			local_gamelogic.player_registration (ID, TextMeshProTexts[ID].text);
-		} {
-			TextMeshProTexts[ID].text = GameLogic.players[ID].user_name;
+		
+		local_gamelogic.player_registration (ID, TextMeshProTexts[ID].text);
+		TextMeshProTexts[ID].text = GameLogic.players[ID].user_name;
+		Image  temp_but = player_UIs[ID].GetComponentsInChildren<Image>()[1];
+
+		if (TextMeshProTexts[ID].text != "") {
+			Debug.Log(player_UIs[ID].GetComponentsInChildren<Image>()[1].name);
+
+			
+			temp_but.GetComponent<Image>().sprite = locked_in;
+			local_gamelogic.current_lock_status (ID);
+
+		} else
+		{
+			 temp_but.GetComponent<Image>().sprite = not_locked_in;
 		}
+
+		
+		
 		
 	}
 
@@ -95,5 +109,9 @@ public class InputFieldReader : MonoBehaviour {
 			SceneManager.LoadScene ("Role_delegation");
 		}	
 	}		
+
+	public void back_2_start_screen () {
+		SceneManager.LoadScene("Start_screen");
+	}
 }
 
