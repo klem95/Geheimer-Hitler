@@ -34,6 +34,9 @@ public class GameLogic : MonoBehaviour {
 
 	public Sprite locked_in;
 
+	bool initializing_game;
+
+	
 
 
 	void Awake() {
@@ -47,45 +50,50 @@ public class GameLogic : MonoBehaviour {
 		players = new List<Player> ();
 		logged_data = new List <Log_data> ();
 		elections_failed = 0;
+
+		initializing_game = false;
+
+		
 	}
 	
 	// Game size selection and player registration  \\
 
 	public void initialize_game_size (int _people) {
 
-		turn_tracker = new string [_people];
+		if (!initializing_game) {
+			initializing_game = true;
+			turn_tracker = new string [_people];
 
-		
-
-		for (byte i = 0; i < _people; i ++) {
-			players.Add (new Player (i));
-		}
-
-		if (_people <= 6) {
-
-			power_up_pos = new int [3];
-
-			for (int i = 3; i < power_up_pos.Length+3; i++) {
-				power_up_pos[i-3] = i;
+			for (byte i = 0; i < _people; i ++) {
+				players.Add (new Player (i));
 			}
 
-			small_b[_people - 5].GetComponent<Image>().sprite = locked_in;
-			small_b[_people - 5].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
-			
-			game_size = "small";
-			Debug.Log ("Game size small");
+			if (_people <= 6) {
 
-		} else if (_people <= 8) {
-			medium_b[_people - 7].GetComponent<Image>().sprite = locked_in;
-			medium_b[_people - 7].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
-			game_size = "medium";
-		} else {
-			large_b[_people - 9].GetComponent<Image>().sprite = locked_in;
-			large_b[_people - 9].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
-			game_size = "marge";
+				power_up_pos = new int [3];
+
+				for (int i = 3; i < power_up_pos.Length+3; i++) {
+					power_up_pos[i-3] = i;
+				}
+
+				small_b[_people - 5].GetComponent<Image>().sprite = locked_in;
+				small_b[_people - 5].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
+				
+				game_size = "small";
+				Debug.Log ("Game size small");
+
+			} else if (_people <= 8) {
+				medium_b[_people - 7].GetComponent<Image>().sprite = locked_in;
+				medium_b[_people - 7].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
+				game_size = "medium";
+			} else {
+				large_b[_people - 9].GetComponent<Image>().sprite = locked_in;
+				large_b[_people - 9].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
+				game_size = "marge";
+			}
+			
+			StartCoroutine ("scene_transition");
 		}
-		
-		StartCoroutine ("scene_transition");
 
 	}
 
@@ -124,8 +132,6 @@ public class GameLogic : MonoBehaviour {
 
 			//Debug.Log("User: " + obj.user_name + "´s looked in status is currently: " + obj.locked_in);
 		}
-
-		Debug.Log("count is: " + count);
 
 		if (players.Count == count) 
 		{

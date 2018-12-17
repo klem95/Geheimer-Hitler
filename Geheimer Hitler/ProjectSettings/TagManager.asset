@@ -10,6 +10,8 @@ TagManager:
   - drawn_cards
   - facistboard_cards
   - liberalboard_cards
+  - dropdown_buttons
+  - button_txt
   layers:
   - Default
   - TransparentFX

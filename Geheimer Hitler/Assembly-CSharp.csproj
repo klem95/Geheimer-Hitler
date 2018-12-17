@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\dropdown_menu.cs" />
      <Compile Include="Assets\Scripts\Dealer.cs" />
      <Compile Include="Assets\Scripts\GameLogic.cs" />
      <Compile Include="Assets\Scripts\GUI_man.cs" />
