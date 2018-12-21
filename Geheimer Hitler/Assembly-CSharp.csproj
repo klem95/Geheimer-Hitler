@@ -53,8 +53,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\dropdown_menu.cs" />
+     <Compile Include="Assets\game_board.cs" />
+     <Compile Include="Assets\goverment_manager.cs" />
+     <Compile Include="Assets\Scripts\Board.cs" />
      <Compile Include="Assets\Scripts\Dealer.cs" />
+     <Compile Include="Assets\Scripts\drop_down_menu_top.cs" />
+     <Compile Include="Assets\Scripts\dropdown_menu.cs" />
+     <Compile Include="Assets\Scripts\dropdown_side.cs" />
+     <Compile Include="Assets\Scripts\game_manager.cs" />
      <Compile Include="Assets\Scripts\GameLogic.cs" />
      <Compile Include="Assets\Scripts\GUI_man.cs" />
      <Compile Include="Assets\Scripts\InputFieldReader.cs" />

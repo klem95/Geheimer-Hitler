@@ -92,12 +92,7 @@ public class InputFieldReader : MonoBehaviour {
 			 
 		}
 
-		foreach (Player obj in GameLogic.players)
-		{
-			Debug.Log("User: " + obj.user_name + "´s looked in status is currently: " + obj.locked_in);
-		}
-
-		Debug.Log("---------------------------");
+	
 
 		local_gamelogic.current_lock_status ();
 

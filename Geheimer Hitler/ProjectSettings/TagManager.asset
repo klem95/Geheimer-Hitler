@@ -12,6 +12,8 @@ TagManager:
   - liberalboard_cards
   - dropdown_buttons
   - button_txt
+  - interaction_bar
+  - goverment_txt
   layers:
   - Default
   - TransparentFX

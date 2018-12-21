@@ -74,8 +74,6 @@ public class Role_delegation : MonoBehaviour {
 
 		button_txt = GameObject.FindGameObjectsWithTag("button_txt");
 
-		next_player.GetComponent<Image>().color -= new Color (0,0,0,0.5f);
-
 
 		mem_card.SetActive (false);
 		profile_card.SetActive(false);
@@ -104,6 +102,7 @@ public class Role_delegation : MonoBehaviour {
 		button_txt[1].transform.localPosition -= new Vector3 (0,5,0);
 		next_player.GetComponent<Button>().image.sprite  = pressed;
 		next_player.GetComponentInChildren<TMP_Text> ().color -= new Color (0,0,0,0.5f);
+		next_player.interactable = false;
 	}
 	
 	// Update is called once per frame
@@ -168,21 +167,23 @@ public class Role_delegation : MonoBehaviour {
 
 	public void reveal_player_role () {
 
+		reveal_player.interactable = false;
+		next_player.interactable = true;
+
 		button_txt[1].transform.localPosition += new Vector3 (0,5,0);
 		button_txt[0].transform.localPosition -= new Vector3 (0,5,0);
-		
-		
-		reveal_player.GetComponent<Image>().color -= new Color (0,0,0,0.5f);
-		next_player.GetComponent<Image>().color += new Color (0,0,0,0.5f);
+
+		Debug.Log(next_player.GetComponent<Image>().color);
+
+	
+		//reveal_player.GetComponent<Image>().color -= new Color (0,0,0,0.5f);
+		//next_player.GetComponent<Image>().color += new Color (0,0,0,0.5f);
 
 		reveal_player.GetComponent<Button>().image.sprite = pressed;
 		next_player.GetComponent<Button>().image.sprite  = not_pressed;
 
 		reveal_player.GetComponentInChildren<TMP_Text> ().color -= new Color (0,0,0,0.5f);
 		next_player.GetComponentInChildren<TMP_Text> ().color += new Color (0,0,0,0.5f);
-
-		reveal_player.interactable = false;
-		next_player.interactable = true;
 
 		assign_profile_picture (GameLogic.players[player_no_2_displayer].profile_card);
 
@@ -208,16 +209,16 @@ public class Role_delegation : MonoBehaviour {
 		button_txt[1].transform.localPosition -= new Vector3 (0,5,0);
 		button_txt[0].transform.localPosition += new Vector3 (0,5,0);
 
-		next_player.GetComponent<Image>().color -= new Color (0,0,0,0.5f);
-		reveal_player.GetComponent<Image>().color += new Color (0,0,0,0.5f);
+
+
+		//next_player.GetComponent<Image>().color -= new Color (0,0,0,0.5f);
+		//reveal_player.GetComponent<Image>().color += new Color (0,0,0,0.5f);
 
 		reveal_player.GetComponentInChildren<TMP_Text> ().color += new Color (0,0,0,0.5f);
 		next_player.GetComponentInChildren<TMP_Text> ().color -= new Color (0,0,0,0.5f);
 
 		reveal_player.GetComponent<Button>().image.sprite  = not_pressed;
 		next_player.GetComponent<Button>().image.sprite  = pressed;
-
-
 
 		reveal_player.interactable = true;
 		next_player.interactable = false;
@@ -239,6 +240,11 @@ public class Role_delegation : MonoBehaviour {
 		} else {
 			SceneManager.LoadScene ("Board");
 		}
+	}
+
+
+	public void temp_funtion () {
+		SceneManager.LoadScene ("Board");
 	}
 
 	void assign_profile_picture (string name) {

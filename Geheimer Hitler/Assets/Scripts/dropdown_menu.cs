@@ -16,17 +16,21 @@ public class dropdown_menu : MonoBehaviour {
 	string prew_scene;
 
 	public GameObject [] dropdown_menu_but;
+
 	void Awake() {
         DontDestroyOnLoad (gameObject);
     }
 
 	// Use this for initialization
 	void Start () {
+	
 		dropdown_menu_but = GameObject.FindGameObjectsWithTag("dropdown_buttons");
 		//Debug.Log(SceneManager.GetActiveScene().name);
 		dropdown_but.onClick.AddListener(activate_dropdown_up);
 
 		load_dropdown (SceneManager.GetActiveScene().name);
+		
+		
 		
 	}
 	
@@ -43,9 +47,11 @@ public class dropdown_menu : MonoBehaviour {
 			foreach (GameObject obj in dropdown_menu_but)
 			{
 				if (obj.name == "Info"){
-					obj.GetComponent<Image>().color -= new Color (0,0,0,0.7f);
+					obj.GetComponent<Button>().interactable = false;
+					//obj.GetComponent<Image>().color -= new Color (0,0,0,0.7f);
 				} else if (obj.name == "Settings") {
-					obj.GetComponent<Image>().color -= new Color (0,0,0,0.7f);
+					obj.GetComponent<Button>().interactable = false;
+					//obj.GetComponent<Image>().color -= new Color (0,0,0,0.7f);
 				} else {
 					obj.GetComponent<Button> ().onClick.AddListener(scene_dir);
 				}
@@ -63,6 +69,19 @@ public class dropdown_menu : MonoBehaviour {
 				}
 			}
 
+		} else if (_scene == "Board") {
+			prew_scene = "Role_delegation";
+
+			foreach (GameObject obj in dropdown_menu_but)
+			{
+				if (obj.name == "Info"){
+					
+				} else if (obj.name == "Settings") {
+					
+				} else {
+					obj.GetComponent<Button> ().onClick.AddListener(scene_dir);
+				}
+			}
 		}
 	}
 
@@ -70,30 +89,19 @@ public class dropdown_menu : MonoBehaviour {
 		dropdown_but.onClick.RemoveAllListeners();
 		StartCoroutine ("animating_dropdown_up");
 
-		
 	}
 
 	IEnumerator animating_dropdown_up () {
 
-		while (transform.position.y < target_up.transform.position.y) {
+		while (Mathf.Round(transform.position.y) < Mathf.Round(target_up.transform.position.y)) {
 			float step = speed * Time.deltaTime;
 			transform.position = Vector2.MoveTowards (transform.position, target_up.transform.position, step);
+			//Debug.Log("my: " + Mathf.Round(transform.position.y) );
+			//Debug.Log("target: " + Mathf.Round(target_up.transform.position.y) );
 			yield return new WaitForSeconds (0.01f);
+
 			
 		}
-		
-
-		/* 
-
-		Debug.Log(gameObject.transform.localPosition.y);
-		float move = 0;
-		while (gameObject.transform.localPosition.y <= -424 ) {
-			transform.localPosition += new Vector3 (0,move,0);
-			move++;
-			yield return new WaitForSeconds (0.01f);
-		}
-
-		*/
 		Debug.Log("play_0");
 		dropdown_but.onClick.AddListener(activate_dropdown_down);
 		
@@ -114,21 +122,7 @@ public class dropdown_menu : MonoBehaviour {
 			transform.position = Vector2.MoveTowards (transform.position, target_down.transform.position, step);
 			yield return new WaitForSeconds (0.01f);
 		}
-
 		dropdown_but.onClick.AddListener(activate_dropdown_up);
-		/*
-		
-		
-		 
-		float move = 0;
-		while (gameObject.transform.localPosition.y >= -570 ) {
-			transform.localPosition += new Vector3 (0,move,0);
-			move--;
-			yield return new WaitForSeconds (0.01f);
-		}
-
-		*/
-		
 	}
 
 	void scene_dir () {

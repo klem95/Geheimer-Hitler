@@ -36,6 +36,13 @@ public class GameLogic : MonoBehaviour {
 
 	bool initializing_game;
 
+	public static Board board_layout;
+
+
+	static public int facist_card_played;
+	static public int liberal_card_played;
+
+	public static int election_tracker_counter;
 	
 
 
@@ -80,16 +87,21 @@ public class GameLogic : MonoBehaviour {
 				small_b[_people - 5].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
 				
 				game_size = "small";
-				Debug.Log ("Game size small");
+
+				board_layout = new Board (game_size);
+
+				Debug.Log ("the board to set up: " + board_layout.power_ups_layout[2]);
 
 			} else if (_people <= 8) {
 				medium_b[_people - 7].GetComponent<Image>().sprite = locked_in;
 				medium_b[_people - 7].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
 				game_size = "medium";
+				board_layout = new Board (game_size);
 			} else {
 				large_b[_people - 9].GetComponent<Image>().sprite = locked_in;
 				large_b[_people - 9].GetComponentInChildren<TMPro.TMP_Text>().transform.localPosition -= new Vector3 (0,15,0);
-				game_size = "marge";
+				game_size = "large";
+				board_layout = new Board (game_size);
 			}
 			
 			StartCoroutine ("scene_transition");
@@ -162,5 +174,19 @@ public class GameLogic : MonoBehaviour {
 			Debug.Log("Election failed, Show top card in deck");
 			elections_failed = 0;
 		}
+	}
+
+	public void temp_load_func () {
+		for (byte i = 0; i < 5; i ++) {
+				players.Add (new Player (i));
+				players[i].ID = i;
+				players[i].user_name = i.ToString();
+
+				game_size = "small";
+
+				board_layout = new Board (game_size);
+
+				SceneManager.LoadScene ("Role_delegation");
+			}
 	}
 }
